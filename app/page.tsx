@@ -11,6 +11,7 @@ import {
   HeritageSite
 } from "@/data/heritageData";
 import { MonumentDetailModal } from "@/components/MonumentDetailModal";
+import { MistoryHeroBanner } from "@/components/MistoryHeroBanner";
 import {
   Compass,
   MapPin,
@@ -45,79 +46,30 @@ export default function HomePage() {
 
   return (
     <div className="space-y-24 pb-20">
-      {/* 1. HERO BANNER */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white">
-        {/* Background Image with layered overlays */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/images/hue/dai-noi/img_0566.jpg')`
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/60 to-stone-900/40" />
-        <div className="absolute inset-0 bg-radial-gradient from-transparent via-stone-950/40 to-stone-950" />
+      {/* 1. MISTORY ANIMATED HERO BANNER & INTRO CLOUDS */}
+      <MistoryHeroBanner />
 
-        {/* Hero Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 pt-12">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 backdrop-blur-md text-amber-300 text-xs sm:text-sm font-semibold tracking-wider uppercase animate-fade-in">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>Di Sản Văn Hóa Thế Giới UNESCO 1993</span>
+      {/* Quick Stats Microbar */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-30">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          <div className="bg-white/95 backdrop-blur-md border border-amber-300/80 rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all">
+            <div className="text-2xl sm:text-3xl font-serif font-black text-red-900">1993</div>
+            <div className="text-xs text-stone-600 mt-1 font-medium">UNESCO Công nhận Di sản đầu tiên của VN</div>
           </div>
-
-          {/* Slogan & Title */}
-          <div className="space-y-4">
-            <h1 className="font-serif font-black text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white drop-shadow-2xl">
-              Khám Phá Di Sản
-              <span className="block mt-2 font-serif text-3xl sm:text-5xl lg:text-6xl gold-gradient-text">
-                Cố Đô Huế – Khảm Sắc Cố Đô
-              </span>
-            </h1>
-            <p className="max-w-2xl mx-auto text-base sm:text-lg text-stone-200/90 leading-relaxed font-light drop-shadow">
-              Hành trình trở về kinh đô vương triều Nguyễn, nơi tinh hoa kiến trúc phong thủy đỉnh cao giao hòa cùng nghệ thuật khảm sành sứ độc bản ngàn năm.
-            </p>
+          <div className="bg-white/95 backdrop-blur-md border border-amber-300/80 rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all">
+            <div className="text-2xl sm:text-3xl font-serif font-black text-amber-700">14+</div>
+            <div className="text-xs text-stone-600 mt-1 font-medium">Quần thể Di tích & Lăng tẩm Hoàng gia</div>
           </div>
-
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <a
-              href="#di-tich"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 hover:from-red-800 hover:to-amber-600 text-white font-bold text-sm tracking-wider uppercase shadow-2xl shadow-amber-900/50 border border-amber-400/40 transition-all active:scale-95 flex items-center justify-center gap-2 group"
-            >
-              <Compass className="w-5 h-5 text-amber-300 group-hover:rotate-45 transition-transform" />
-              <span>Khám phá 14 di tích</span>
-            </a>
-
-            <a
-              href="#gia-tri-van-hoa"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold text-sm tracking-wide border border-white/20 transition-all flex items-center justify-center gap-2"
-            >
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Khảm sắc cố đô</span>
-            </a>
+          <div className="bg-white/95 backdrop-blur-md border border-amber-300/80 rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all">
+            <div className="text-2xl sm:text-3xl font-serif font-black text-emerald-800">100%</div>
+            <div className="text-xs text-stone-600 mt-1 font-medium">Vé điện tử QR quét tại cổng vào ngay</div>
           </div>
-
-          {/* Quick Stats Microbar */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 text-left">
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4">
-              <div className="text-2xl sm:text-3xl font-serif font-black text-amber-400">1993</div>
-              <div className="text-xs text-stone-300 mt-1">UNESCO Công nhận Di sản đầu tiên của VN</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4">
-              <div className="text-2xl sm:text-3xl font-serif font-black text-amber-400">14+</div>
-              <div className="text-xs text-stone-300 mt-1">Quần thể Di tích & Lăng tẩm Hoàng gia</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4">
-              <div className="text-2xl sm:text-3xl font-serif font-black text-amber-400">100%</div>
-              <div className="text-xs text-stone-300 mt-1">Vé điện tử QR quét tại cổng vào ngay</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4">
-              <div className="text-2xl sm:text-3xl font-serif font-black text-amber-400">8 Tuyến</div>
-              <div className="text-xs text-stone-300 mt-1">Vé tuyến ưu đãi tiết kiệm tới 120k</div>
-            </div>
+          <div className="bg-white/95 backdrop-blur-md border border-amber-300/80 rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all">
+            <div className="text-2xl sm:text-3xl font-serif font-black text-red-950">8 Tuyến</div>
+            <div className="text-xs text-stone-600 mt-1 font-medium">Vé tuyến ưu đãi tiết kiệm tới 120.000 đ</div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* 2. GIỚI THIỆU DI SẢN HUẾ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

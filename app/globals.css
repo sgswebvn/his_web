@@ -116,3 +116,118 @@ h1, h2, h3, .font-royal-title {
   }
 }
 
+/* ============================================================
+   MISTORY HERO ANIMATIONS (Waves, Lotus, Sun Rays, Clouds)
+============================================================ */
+@keyframes homeHeroRayIntro {
+  0% { opacity: 0; scale: .2; }
+  to { opacity: 1; scale: 1; }
+}
+@keyframes homeHeroRaySwing {
+  0% { rotate: -20deg; }
+  to { rotate: 20deg; }
+}
+@keyframes homeHeroCloudMoveRight {
+  0%, to { transform: translateZ(0); }
+  50% { transform: translate3d(30px, 0, 0); }
+}
+@keyframes homeHeroCloudMoveLeft {
+  0%, to { transform: translateZ(0); }
+  50% { transform: translate3d(-30px, 0, 0); }
+}
+@keyframes homeHeroWaveDriftRight {
+  0%, to { transform: translateZ(0); }
+  50% { transform: translate3d(14px, 4px, 0); }
+}
+@keyframes homeHeroWaveDriftLeft {
+  0%, to { transform: translateZ(0); }
+  50% { transform: translate3d(-14px, -4px, 0); }
+}
+@keyframes homeHeroLotusFloatRight {
+  0%, to { transform: translateZ(0) rotate(0deg); }
+  50% { transform: translate3d(8px, 0, 0) rotate(1.2deg); }
+}
+@keyframes homeHeroLotusFloatLeft {
+  0%, to { transform: translateZ(0) rotate(0deg); }
+  50% { transform: translate3d(-8px, 0, 0) rotate(-1.2deg); }
+}
+@keyframes homeHeroFlowerFloatRight {
+  0%, to { transform: translateZ(0) rotate(0deg); }
+  50% { transform: translate3d(8px, -10px, 0) rotate(1.2deg); }
+}
+@keyframes homeHeroFlowerFloatLeft {
+  0%, to { transform: translateZ(0) rotate(0deg); }
+  50% { transform: translate3d(-8px, -10px, 0) rotate(-1.2deg); }
+}
+
+#hoa-sen-phai, #hoa-sen-trai, #la-sen-dinh-1, #la-sen-dinh-2, #la-sen-phai, #la-sen-trai, #may-duoi-phai-1, #may-giua-duoi-phai-1, #may-giua-duoi-phai-2, #may-giua-duoi-trai-1, #may-giua-tren-phai-1, #may-giua-tren-phai-2, #may-giua-tren-trai-1, #may-giua-tren-trai-2, #song-1, #song-2, #song-3, #song-4, #song-5, #song-6, #song-dinh-1, #song-dinh-2, #song-dinh-3, #song-dinh-4, #song-dinh-5, #tia-sang-sau-dinh {
+  will-change: transform;
+}
+
+#tia-sang-sau-dinh {
+  opacity: 0;
+  scale: .2;
+  rotate: 0deg;
+  transform-box: view-box;
+  transform-origin: 755.489px 607.445px;
+  animation: homeHeroRayIntro 1.4s ease-out forwards, homeHeroRaySwing 19s linear 1.4s infinite alternate;
+  will-change: opacity, scale, rotate;
+}
+
+#may-giua-duoi-trai-1, #may-giua-tren-trai-1, #may-giua-tren-trai-2 {
+  animation: homeHeroCloudMoveRight 9s ease-in-out infinite;
+}
+#may-giua-tren-trai-2 { animation-duration: 10.4s; }
+#may-giua-duoi-trai-1 { animation-duration: 11.8s; }
+
+#may-duoi-phai-1, #may-giua-duoi-phai-1, #may-giua-duoi-phai-2, #may-giua-tren-phai-1, #may-giua-tren-phai-2 {
+  animation: homeHeroCloudMoveLeft 9.5s ease-in-out infinite;
+}
+#may-giua-tren-phai-2 { animation-duration: 10.7s; }
+#may-duoi-phai-1 { animation-duration: 11.3s; }
+#may-giua-duoi-phai-1 { animation-duration: 11.9s; }
+#may-giua-duoi-phai-2 { animation-duration: 13.1s; }
+
+#song-1, #song-3, #song-5, #song-dinh-1, #song-dinh-3, #song-dinh-5 {
+  animation: homeHeroWaveDriftRight 3s ease-in-out infinite;
+}
+#song-2, #song-4, #song-6, #song-dinh-2, #song-dinh-4 {
+  animation: homeHeroWaveDriftLeft 3.18s ease-in-out infinite;
+}
+#song-3 { animation-duration: 3.36s; }
+#song-4 { animation-duration: 3.54s; }
+#song-5 { animation-duration: 3.72s; }
+#song-6 { animation-duration: 3.9s; }
+#song-dinh-1 { animation-duration: 3.12s; }
+#song-dinh-2 { animation-duration: 3.28s; }
+#song-dinh-3 { animation-duration: 3.44s; }
+#song-dinh-4 { animation-duration: 3.6s; }
+#song-dinh-5 { animation-duration: 3.84s; }
+
+#la-sen-trai {
+  animation: homeHeroLotusFloatRight 4.4s ease-in-out infinite;
+}
+#la-sen-phai, #la-sen-trai {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#la-sen-phai {
+  animation: homeHeroLotusFloatLeft 4.75s ease-in-out infinite;
+}
+#la-sen-dinh-1 {
+  animation: homeHeroLotusFloatRight 4.55s ease-in-out infinite;
+}
+#la-sen-dinh-2 {
+  animation: homeHeroLotusFloatLeft 4.9s ease-in-out infinite;
+}
+#hoa-sen-trai {
+  animation: homeHeroFlowerFloatRight 4.4s ease-in-out infinite;
+}
+#hoa-sen-phai, #hoa-sen-trai {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+#hoa-sen-phai {
+  animation: homeHeroFlowerFloatLeft 4.75s ease-in-out infinite;
+}
+
