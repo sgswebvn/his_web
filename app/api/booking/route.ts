@@ -177,6 +177,9 @@ export async function POST(req: NextRequest) {
     // Runs super fast via HTTPS REST (Port 443), never blocked by Render!
     // -------------------------------------------------------------
     const sendEmails = async () => {
+      let customerSent = false;
+      let adminSent = false;
+
       // 1. Try Resend if API Key is configured
       if (resendApiKey && resendApiKey.trim().length > 0) {
         try {
@@ -209,18 +212,30 @@ export async function POST(req: NextRequest) {
             })
           ]);
 
-          console.log("Resend execution finished:", { customerRes, adminRes });
-          return;
+          if (customerRes.status === "fulfilled" && !customerRes.value.error) {
+            customerSent = true;
+          } else {
+            console.warn("Resend customer dispatch note:", customerRes);
+          }
+
+          if (adminRes.status === "fulfilled" && !adminRes.value.error) {
+            adminSent = true;
+          } else {
+            console.warn("Resend admin dispatch note:", adminRes);
+          }
+
+          // If both sent, we're done!
+          if (customerSent && adminSent) return;
         } catch (resendErr: any) {
           console.error("Resend API failed, falling back to SMTP:", resendErr?.message);
         }
       }
 
-      // 2. Fallback to Nodemailer SMTP (Localhost / backup)
+      // 2. Fallback to Nodemailer SMTP (Localhost / backup if Resend has unverified domain)
       const smtpUser = process.env.SMTP_USER;
       const smtpPass = process.env.SMTP_PASS;
 
-      if (smtpUser && smtpPass && smtpPass.trim().length > 0) {
+      if ((!customerSent || !adminSent) && smtpUser && smtpPass && smtpPass.trim().length > 0) {
         try {
           const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST || "smtp.gmail.com",
@@ -235,33 +250,44 @@ export async function POST(req: NextRequest) {
             }
           });
 
-          await Promise.allSettled([
-            transporter.sendMail({
-              from: `"Khảm Sắc Cố Đô – Di Sản Huế" <${smtpUser}>`,
-              to: customerEmail,
-              subject: `[Xác nhận đặt vé thành công] Mã vé: ${ticketCode} - ${targetName}`,
-              html: customerHtml,
-              attachments: [
-                {
-                  filename: `ve-dien-tu-${ticketCode}.png`,
-                  content: qrBuffer
-                }
-              ]
-            }),
-            transporter.sendMail({
-              from: `"Hệ thống Đặt vé Di sản Huế" <${smtpUser}>`,
-              to: adminEmail,
-              subject: `[ĐƠN VÉ MỚI] ${ticketCode} - ${customerName} - ${Number(totalAmount).toLocaleString("vi-VN")} đ`,
-              html: adminHtml,
-              attachments: [
-                {
-                  filename: `ve-dien-tu-${ticketCode}.png`,
-                  content: qrBuffer
-                }
-              ]
-            })
-          ]);
-          console.log("SMTP fallback email finished");
+          const fallbackPromises: Promise<any>[] = [];
+
+          if (!customerSent) {
+            fallbackPromises.push(
+              transporter.sendMail({
+                from: `"Khảm Sắc Cố Đô – Di Sản Huế" <${smtpUser}>`,
+                to: customerEmail,
+                subject: `[Xác nhận đặt vé thành công] Mã vé: ${ticketCode} - ${targetName}`,
+                html: customerHtml,
+                attachments: [
+                  {
+                    filename: `ve-dien-tu-${ticketCode}.png`,
+                    content: qrBuffer
+                  }
+                ]
+              })
+            );
+          }
+
+          if (!adminSent) {
+            fallbackPromises.push(
+              transporter.sendMail({
+                from: `"Hệ thống Đặt vé Di sản Huế" <${smtpUser}>`,
+                to: adminEmail,
+                subject: `[ĐƠN VÉ MỚI] ${ticketCode} - ${customerName} - ${Number(totalAmount).toLocaleString("vi-VN")} đ`,
+                html: adminHtml,
+                attachments: [
+                  {
+                    filename: `ve-dien-tu-${ticketCode}.png`,
+                    content: qrBuffer
+                  }
+                ]
+              })
+            );
+          }
+
+          await Promise.allSettled(fallbackPromises);
+          console.log("SMTP fallback processing completed");
         } catch (smtpErr: any) {
           console.error("SMTP fallback error:", smtpErr?.message);
         }

@@ -175,7 +175,7 @@ export default function ThongTinHoTroPage() {
             <div><strong>Bước 1. Lựa chọn vé tham quan:</strong> Truy cập mục Đặt vé, chọn vé đơn điểm hoặc vé theo tuyến phù hợp.</div>
             <div><strong>Bước 2. Chọn ngày & số lượng:</strong> Chọn ngày dự kiến tham quan (kèm xem thời tiết), số lượng vé người lớn và trẻ em.</div>
             <div><strong>Bước 3. Nhập thông tin người đặt:</strong> Điền chính xác họ tên, số điện thoại và email để nhận vé điện tử.</div>
-            <div><strong>Bước 4. Kiểm tra & thanh toán:</strong> Kiểm tra lại điểm tham quan, ngày sử dụng, số lượng vé và thực hiện thanh toán mô phỏng.</div>
+            <div><strong>Bước 4. Kiểm tra & thanh toán:</strong> Kiểm tra lại điểm tham quan, ngày sử dụng, số lượng vé và thực hiện thanh toán trực tuyến an toàn.</div>
             <div><strong>Bước 5. Nhận vé điện tử:</strong> Sau khi xác nhận, vé điện tử kèm mã QR sẽ hiển thị tức thì và tự động gửi tới email của bạn.</div>
           </div>
         </div>

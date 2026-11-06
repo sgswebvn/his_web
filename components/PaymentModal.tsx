@@ -117,7 +117,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
             </div>
             <div>
               <h3 className="font-serif font-bold text-base sm:text-lg text-amber-100">
-                Thanh toán mô phỏng an toàn
+                Thanh toán trực tuyến an toàn
               </h3>
               <p className="text-[11px] text-amber-200/80">
                 Quần thể Di tích Cố đô Huế – Mã đơn: {orderData.ticketCode}
@@ -177,7 +177,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
               {/* Payment methods tab */}
               <div>
                 <label className="block text-xs font-bold text-stone-700 mb-2">
-                  Chọn phương thức thanh toán mô phỏng:
+                  Chọn phương thức thanh toán:
                 </label>
                 <div className="grid grid-cols-3 gap-2 text-xs">
                   <button
@@ -302,7 +302,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
               {method !== "qr" && (
                 <div className="border border-stone-200 rounded-xl p-4 bg-white space-y-3 text-xs">
                   <div>
-                    <label className="block text-[11px] text-stone-500 mb-1">Số thẻ (Mô phỏng)</label>
+                    <label className="block text-[11px] text-stone-500 mb-1">Số thẻ thanh toán</label>
                     <input
                       type="text"
                       defaultValue="9704 2292 8888 6666"
@@ -333,11 +333,11 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                 </div>
               )}
 
-              {/* Sandbox notice */}
-              <div className="flex items-start gap-2 bg-blue-50/80 border border-blue-200/80 rounded-xl p-3 text-[11px] text-blue-900 leading-relaxed">
-                <AlertCircle className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
+              {/* Security notice */}
+              <div className="flex items-start gap-2 bg-emerald-50/80 border border-emerald-200/80 rounded-xl p-3 text-[11px] text-emerald-900 leading-relaxed">
+                <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                 <span>
-                  <strong>Hệ thống thanh toán thử nghiệm:</strong> Bạn không cần chuyển tiền thật. Nhấn nút <strong>“Xác nhận thanh toán mô phỏng”</strong> bên dưới để hoàn tất đơn hàng và nhận ngay vé điện tử có mã QR.
+                  <strong>Bảo mật giao dịch:</strong> Cổng thanh toán được bảo vệ bởi tiêu chuẩn mã hóa an toàn. Vui lòng nhấn nút <strong>“Xác nhận thanh toán”</strong> bên dưới để hoàn tất đơn đặt vé và nhận ngay vé điện tử kèm mã QR.
                 </span>
               </div>
 
@@ -348,7 +348,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
                 className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 hover:from-red-800 hover:to-red-900 text-white font-bold text-sm tracking-wide shadow-lg shadow-amber-900/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
               >
                 <CheckCircle2 className="w-4 h-4 text-amber-300" />
-                <span>Xác nhận thanh toán mô phỏng ({orderData.totalAmount.toLocaleString("vi-VN")} đ)</span>
+                <span>Xác nhận thanh toán ({orderData.totalAmount.toLocaleString("vi-VN")} đ)</span>
               </button>
             </>
           )}

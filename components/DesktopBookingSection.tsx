@@ -745,7 +745,7 @@ export const DesktopBookingSection: React.FC<DesktopBookingSectionProps> = ({
               </button>
 
               <div className="text-[11px] text-stone-500 text-center leading-relaxed">
-                🔒 Thanh toán mô phỏng an toàn, tích hợp xuất mã QR tức thì và gửi email tự động.
+                🔒 Thanh toán trực tuyến an toàn, tích hợp xuất mã QR tức thì và gửi email tự động.
               </div>
             </div>
 

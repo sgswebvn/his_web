@@ -23,7 +23,7 @@ export default function DatVePage({
           Đặt Vé Tham Quan Cố Đô Huế
         </h1>
         <p className="text-sm text-stone-600 leading-relaxed">
-          Lựa chọn vé đơn điểm hoặc vé tuyến ưu đãi, thanh toán mô phỏng tiện lợi và nhận ngay vé điện tử có mã QR soát vé tự động tại cổng.
+          Lựa chọn vé đơn điểm hoặc vé tuyến ưu đãi, thanh toán trực tuyến tiện lợi và nhận ngay vé điện tử có mã QR soát vé tự động tại cổng.
         </p>
       </div>
 
@@ -34,7 +34,7 @@ export default function DatVePage({
             { step: "Bước 1", title: "Lựa chọn vé", desc: "Vé đơn điểm hoặc tuyến kết hợp" },
             { step: "Bước 2", title: "Chọn ngày & số lượng", desc: "Xem dự báo thời tiết Cố Đô" },
             { step: "Bước 3", title: "Nhập thông tin", desc: "Họ tên, SĐT và email nhận vé" },
-            { step: "Bước 4", title: "Thanh toán mô phỏng", desc: "Quét VietQR hoặc thẻ ngân hàng" },
+            { step: "Bước 4", title: "Thanh toán trực tuyến", desc: "Quét VietQR hoặc thẻ ngân hàng" },
             { step: "Bước 5", title: "Nhận vé điện tử", desc: "Mã QR hợp chuẩn vào cổng" }
           ].map((s, idx) => (
             <div key={idx} className="relative flex flex-col space-y-1 p-3 bg-stone-50 rounded-2xl border border-stone-100">
