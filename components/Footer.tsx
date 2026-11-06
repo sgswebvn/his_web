@@ -7,7 +7,7 @@ import { Phone, Mail, MapPin, Clock, ShieldCheck, Ticket, ExternalLink, Heart } 
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#103D32] text-stone-200 border-t-4 border-[#35D8A9] pt-16 pb-12 relative overflow-hidden">
+    <footer className="bg-[#312048] text-stone-200 border-t-4 border-[#F7C8D0] pt-16 pb-12 relative overflow-hidden">
       {/* Decorative background cloud watermark */}
       <img
         src="/wp-content/themes/gnws/assets/images/may-1.svg"
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
               <div className="font-serif font-black text-xl text-[#FFF1D9] tracking-wider uppercase leading-tight">
                 {COMPANY_INFO.brand}
               </div>
-              <div className="text-[11px] text-[#35D8A9] font-medium tracking-wider uppercase mt-0.5">
+              <div className="text-[11px] text-[#F7C8D0] font-medium tracking-wider uppercase mt-0.5">
                 {COMPANY_INFO.name}
               </div>
             </div>
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_INFO.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#35D8A9] hover:text-[#103D32] border border-[#35D8A9]/20 flex items-center justify-center transition-all text-[#FFF1D9]"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#F7C8D0] hover:text-[#312048] border border-[#F7C8D0]/20 flex items-center justify-center transition-all text-[#FFF1D9]"
                 title="Fanpage Facebook"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
                 href={COMPANY_INFO.tiktok}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#35D8A9] hover:text-[#103D32] border border-[#35D8A9]/20 flex items-center justify-center transition-all text-[#FFF1D9]"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#F7C8D0] hover:text-[#312048] border border-[#F7C8D0]/20 flex items-center justify-center transition-all text-[#FFF1D9]"
                 title="Kênh TikTok"
               >
                 <span className="font-black text-xs">TT</span>
@@ -63,32 +63,32 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Liên kết nhanh */}
           <div className="space-y-4">
-            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#FFF1D9] border-l-2 border-[#35D8A9] pl-2.5">
+            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#FFF1D9] border-l-2 border-[#F7C8D0] pl-2.5">
               Khám Phá & Đặt Vé
             </h4>
             <ul className="space-y-2.5 text-xs text-stone-300">
               <li>
-                <Link href="/" className="hover:text-[#35D8A9] transition-colors">
+                <Link href="/" className="hover:text-[#F7C8D0] transition-colors">
                   Trang chủ di sản
                 </Link>
               </li>
               <li>
-                <Link href="/kham-pha" className="hover:text-[#35D8A9] transition-colors">
+                <Link href="/kham-pha" className="hover:text-[#F7C8D0] transition-colors">
                   14 Điểm di tích tiêu biểu
                 </Link>
               </li>
               <li>
-                <Link href="/dat-ve" className="hover:text-[#35D8A9] transition-colors">
+                <Link href="/dat-ve" className="hover:text-[#F7C8D0] transition-colors">
                   Bảng giá & Đặt vé tham quan
                 </Link>
               </li>
               <li>
-                <Link href="/hanh-trinh" className="hover:text-[#35D8A9] transition-colors">
+                <Link href="/hanh-trinh" className="hover:text-[#F7C8D0] transition-colors">
                   Hành trình nửa ngày & 1 ngày
                 </Link>
               </li>
               <li>
-                <Link href="/thong-tin-ho-tro" className="hover:text-[#35D8A9] transition-colors">
+                <Link href="/thong-tin-ho-tro" className="hover:text-[#F7C8D0] transition-colors">
                   Nội quy & Hướng dẫn sử dụng vé QR
                 </Link>
               </li>
@@ -97,17 +97,17 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Giờ mở cửa & Quy định */}
           <div className="space-y-4">
-            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#FFF1D9] border-l-2 border-[#35D8A9] pl-2.5">
+            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#FFF1D9] border-l-2 border-[#F7C8D0] pl-2.5">
               Thời Gian Tham Quan
             </h4>
             <div className="space-y-3 text-xs text-stone-300">
               <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1">
-                <span className="font-bold text-[#35D8A9] block">Mùa hè (16/03 – 15/10):</span>
+                <span className="font-bold text-[#F7C8D0] block">Mùa hè (16/03 – 15/10):</span>
                 <span>• Bán vé: 06:30 – 17:30</span>
                 <span className="block text-stone-400">• Đóng cửa: 18:30</span>
               </div>
               <div className="bg-white/5 p-3 rounded-xl border border-white/10 space-y-1">
-                <span className="font-bold text-[#35D8A9] block">Mùa đông (16/10 – 15/03):</span>
+                <span className="font-bold text-[#F7C8D0] block">Mùa đông (16/10 – 15/03):</span>
                 <span>• Bán vé: 07:00 – 17:00</span>
                 <span className="block text-stone-400">• Đóng cửa: 18:00</span>
               </div>
@@ -116,34 +116,34 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Liên hệ & Hỗ trợ */}
           <div className="space-y-4">
-            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#FFF1D9] border-l-2 border-[#35D8A9] pl-2.5">
+            <h4 className="font-serif font-bold text-sm uppercase tracking-wider text-[#FFF1D9] border-l-2 border-[#F7C8D0] pl-2.5">
               Thông Tin Liên Hệ
             </h4>
             <ul className="space-y-3 text-xs text-stone-300">
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#35D8A9] flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#F7C8D0] flex-shrink-0 mt-0.5" />
                 <span>{COMPANY_INFO.address}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#35D8A9] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#F7C8D0] flex-shrink-0" />
                 <a
                   href={`tel:${COMPANY_INFO.hotline}`}
-                  className="font-bold text-[#FFF1D9] hover:text-[#35D8A9] transition-colors"
+                  className="font-bold text-[#FFF1D9] hover:text-[#F7C8D0] transition-colors"
                 >
                   {COMPANY_INFO.hotline}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#35D8A9] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#F7C8D0] flex-shrink-0" />
                 <a
                   href={`mailto:${COMPANY_INFO.email}`}
-                  className="hover:text-[#35D8A9] transition-colors"
+                  className="hover:text-[#F7C8D0] transition-colors"
                 >
                   {COMPANY_INFO.email}
                 </a>
               </li>
               <li className="pt-2">
-                <div className="p-3 bg-[#0A261F]/70 rounded-xl border border-[#35D8A9]/30 text-[11px] text-[#E6FAF4] leading-relaxed">
+                <div className="p-3 bg-[#241738]/80 rounded-xl border border-[#F7C8D0]/20 text-[11px] text-[#FFF1D9] leading-relaxed">
                   🛡️ Vé điện tử có mã QR hợp chuẩn, quét trực tiếp tại cổng không cần đổi vé giấy.
                 </div>
               </li>

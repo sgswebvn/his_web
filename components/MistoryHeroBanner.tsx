@@ -87,25 +87,22 @@ export const MistoryHeroBanner: React.FC = () => {
           2. ANIMATED HERO BANNER ("Banner chuyển động mistory.vn")
       ============================================================ */}
       <section
-        className="home-hero-section relative 2xl:min-h-screen lg:min-h-[850px] md:min-h-[680px] min-h-[420px] overflow-hidden flex flex-col justify-between"
+        className="home-hero-section relative w-full h-[calc(100vh-80px)] min-h-[580px] max-h-[1050px] 2xl:max-h-[1200px] overflow-hidden flex items-center justify-center"
         style={{
-          background: "linear-gradient(180deg, #F5A3B7 0%, #E87A90 35%, #00807C 80%, #004D4A 100%)"
+          background: "linear-gradient(180deg, #EA8F98 0%, #E87A90 35%, #00807C 80%, #004D4A 100%)"
         }}
       >
-        {/* Top Decorative Wave */}
-        <img
-          src="/images/mistory/top-wave.svg"
-          alt=""
-          loading="lazy"
-          className="absolute top-0 left-1/2 -translate-x-1/2 object-contain scale-125 max-md:h-[80px] min-[1920px]:object-cover min-[1920px]:w-full pointer-events-none z-20"
-        />
-
-        {/* Animated Vector SVG Graphic */}
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden pointer-events-none">
+        {/* Animated Vector SVG Graphic - Expansive full-screen hero matching mistory.vn */}
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
           {svgContent ? (
             <div
               className="w-full h-full flex items-center justify-center [&>svg]:w-full [&>svg]:h-full [&>svg]:object-cover animate-fade-in"
-              dangerouslySetInnerHTML={{ __html: svgContent }}
+              dangerouslySetInnerHTML={{
+                __html: svgContent.replace(
+                  /<svg\b([^>]*)>/i,
+                  '<svg $1 preserveAspectRatio="xMidYMid slice" class="home-hero-svg block w-full h-full">'
+                )
+              }}
             />
           ) : (
             /* Fallback while loading */
@@ -118,8 +115,8 @@ export const MistoryHeroBanner: React.FC = () => {
           )}
         </div>
 
-        {/* Soft bottom gradient to blend seamlessly into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#fbf7ee] via-[#fbf7ee]/40 to-transparent z-10 pointer-events-none" />
+        {/* Subtle bottom edge transition into the content section */}
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#fbf7ee] to-transparent z-10 pointer-events-none opacity-80" />
       </section>
     </div>
   );
