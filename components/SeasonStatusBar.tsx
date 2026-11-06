@@ -8,6 +8,8 @@ interface SeasonStatusBarProps {
 }
 
 const dotOffsets = [0, 367.5, 735, 1099];
+const dotColors = ["#F7C8D0", "#748163", "#FEF0A7", "#B3E0FD"];
+const dotInnerColors = ["#312048", "#312048", "#312048", "#312048"];
 
 export default function SeasonStatusBar({ activeIndex, onSelectSeason }: SeasonStatusBarProps) {
   return (
@@ -66,10 +68,10 @@ export default function SeasonStatusBar({ activeIndex, onSelectSeason }: SeasonS
             <g id="dot-di-chuyen" style={{ transform: `translateX(${dotOffsets[activeIndex]}px)`, transition: "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)" }}>
                 <path
                     d="M45.8398 93C57.4378 93 66.8398 83.598 66.8398 72C66.8398 60.402 57.4378 51 45.8398 51C34.2419 51 24.8398 60.402 24.8398 72C24.8398 83.598 34.2419 93 45.8398 93Z"
-                    fill="#EF5288" stroke="#D3955A" strokeWidth="1.5" strokeMiterlimit="10" />
+                    fill={dotColors[activeIndex] || "#F7C8D0"} stroke="#D3955A" strokeWidth="1.5" strokeMiterlimit="10" />
                 <path
                     d="M45.8399 86.1661C53.6636 86.1661 60.0059 79.8237 60.0059 72C60.0059 64.1763 53.6636 57.834 45.8399 57.834C38.0162 57.834 31.6738 64.1763 31.6738 72C31.6738 79.8237 38.0162 86.1661 45.8399 86.1661Z"
-                    fill="#A21C49" />
+                    fill={dotInnerColors[activeIndex] || "#312048"} />
             </g>
         </g>
         <defs>
