@@ -63,35 +63,47 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
   const handleSimulatePayment = async () => {
     setStep("processing");
 
-    // Call API to create ticket & trigger SMTP email
-    try {
-      const res = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(orderData)
-      });
-      const data = await res.json();
+    let apiResult: any = null;
 
-      setTimeout(() => {
-        setStep("success");
-        setTimeout(() => {
-          onSuccess(data);
-        }, 1200);
-      }, 1600);
-    } catch (err) {
-      console.error("Payment API Error:", err);
-      // Fallback
-      setTimeout(() => {
-        setStep("success");
-        setTimeout(() => {
-          onSuccess({
-            success: true,
-            ticketCode: orderData.ticketCode,
-            order: orderData
-          });
-        }, 1200);
-      }, 1600);
-    }
+    // Call API with a strict 2-second timeout
+    const apiCallPromise = (async () => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+
+        const res = await fetch("/api/booking", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(orderData),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+
+        if (res.ok) {
+          apiResult = await res.json();
+        }
+      } catch (e) {
+        console.warn("Background API call timed out or failed:", e);
+      }
+    })();
+
+    // Exact 2.5s realistic loading delay as requested ("loading 3s thôi")
+    await Promise.all([
+      apiCallPromise,
+      new Promise((resolve) => setTimeout(resolve, 2400))
+    ]);
+
+    setStep("success");
+
+    setTimeout(() => {
+      onSuccess(
+        apiResult || {
+          success: true,
+          ticketCode: orderData.ticketCode,
+          order: orderData
+        }
+      );
+    }, 700);
   };
 
   return (
