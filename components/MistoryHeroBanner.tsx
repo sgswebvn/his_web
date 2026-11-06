@@ -87,7 +87,7 @@ export const MistoryHeroBanner: React.FC = () => {
           2. ANIMATED HERO BANNER ("Banner chuyển động mistory.vn")
       ============================================================ */}
       <section
-        className="home-hero-section relative w-full h-[calc(100vh-80px)] min-h-[580px] max-h-[1050px] 2xl:max-h-[1200px] overflow-hidden flex items-center justify-center"
+        className="home-hero-section relative w-full h-screen min-h-[640px] max-h-[1080px] 2xl:max-h-[1400px] overflow-hidden flex items-center justify-center"
         style={{
           background: "linear-gradient(180deg, #EA8F98 0%, #E87A90 35%, #00807C 80%, #004D4A 100%)"
         }}

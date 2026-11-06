@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { MobileBookingApp } from "./MobileBookingApp";
@@ -8,6 +9,7 @@ import { MobileBookingApp } from "./MobileBookingApp";
 export const ResponsiveViewContainer: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => {
+  const pathname = usePathname();
   const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -40,7 +42,7 @@ export const ResponsiveViewContainer: React.FC<{ children: React.ReactNode }> = 
       */}
       <div className="desktop-only-view hidden md:block min-h-screen flex flex-col bg-[#fbf7ee]">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className={`flex-1 ${pathname !== "/" ? "pt-24" : ""}`}>{children}</main>
         <Footer />
       </div>
     </>
