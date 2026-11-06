@@ -51,7 +51,19 @@ export default function HomePage() {
       <MistoryHeroBanner />
 
       {/* 1.1 INTRO HERITAGE HIGHLIGHT (ĐƯA XUỐNG DƯỚI BANNER) */}
-      <section id="gioi-thieu" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 pt-4">
+      <section id="gioi-thieu" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 pt-4 relative">
+        {/* Tasteful Decorative Imperial Clouds */}
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-1.svg"
+          alt=""
+          className="absolute -top-10 -left-16 sm:-left-24 w-52 sm:w-64 opacity-25 pointer-events-none select-none animate-cloud-float"
+        />
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-2.svg"
+          alt=""
+          className="absolute -bottom-8 -right-16 sm:-right-24 w-44 sm:w-56 opacity-20 pointer-events-none select-none scale-x-[-1] animate-cloud-reverse"
+        />
+
         {/* UNESCO Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-sm">
           <Sparkles className="w-4 h-4 text-amber-700" />
@@ -114,7 +126,12 @@ export default function HomePage() {
       </div>
 
       {/* 2. GIỚI THIỆU DI SẢN HUẾ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-2.svg"
+          alt=""
+          className="absolute -top-10 -right-12 w-56 opacity-20 pointer-events-none select-none animate-cloud-float hidden md:block"
+        />
         <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-amber-200/70 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100/80 px-3 py-1 rounded-full">
@@ -172,7 +189,12 @@ export default function HomePage() {
       </section>
 
       {/* 3. TVC QUẢNG BÁ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-3.svg"
+          alt=""
+          className="absolute -top-14 -left-16 w-64 opacity-20 pointer-events-none select-none animate-cloud-reverse hidden md:block"
+        />
         <div className="bg-stone-950 text-white rounded-3xl overflow-hidden shadow-2xl border border-amber-500/30">
           <div className="p-8 sm:p-10 border-b border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
@@ -232,7 +254,19 @@ export default function HomePage() {
       <SeasonalMonumentsSection onSelectSite={(site) => setSelectedSite(site)} />
 
       {/* 5. TOÀN BỘ 14 DI TÍCH VỚI BỘ LỌC CHI TIẾT */}
-      <section id="di-tich" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section id="di-tich" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 relative">
+        {/* Subtle decorative clouds */}
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-1.svg"
+          alt=""
+          className="absolute top-2 -left-16 sm:-left-24 w-56 opacity-20 pointer-events-none select-none animate-cloud-float hidden md:block"
+        />
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-2.svg"
+          alt=""
+          className="absolute top-28 -right-16 sm:-right-24 w-52 opacity-20 pointer-events-none select-none scale-x-[-1] animate-cloud-reverse hidden md:block"
+        />
+
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
             Quần Thể Di Tích
@@ -332,7 +366,12 @@ export default function HomePage() {
       </section>
 
       {/* 5. KHÁM PHÁ GIÁ TRỊ VĂN HÓA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section id="gia-tri-van-hoa" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 relative">
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-2.svg"
+          alt=""
+          className="absolute -top-10 -left-16 w-56 opacity-20 pointer-events-none select-none animate-cloud-float hidden md:block"
+        />
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
             Giá Trị Văn Hóa Nghệ Thuật
@@ -381,7 +420,12 @@ export default function HomePage() {
       </section>
 
       {/* 6. SỰ KIỆN RA MẮT BỘ NHẬN DIỆN MỚI: KHẢM SẮC CỐ ĐÔ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-1.svg"
+          alt=""
+          className="absolute -top-8 -right-16 w-60 opacity-20 pointer-events-none select-none scale-x-[-1] animate-cloud-reverse hidden md:block"
+        />
         <div className="bg-gradient-to-br from-stone-950 via-red-950 to-stone-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-amber-500/40 space-y-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6">
             <div>
@@ -483,7 +527,12 @@ export default function HomePage() {
       </section>
 
       {/* 7. HERITAGE EXPLORATION BANNER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <img
+          src="/wp-content/themes/gnws/assets/images/may-3.svg"
+          alt=""
+          className="absolute -top-12 -left-16 w-64 opacity-20 pointer-events-none select-none animate-cloud-float hidden md:block"
+        />
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-red-950 via-stone-900 to-amber-950 text-white p-8 sm:p-12 shadow-2xl border border-amber-400/40 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-center lg:text-left">
             <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">

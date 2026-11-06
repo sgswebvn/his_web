@@ -231,3 +231,32 @@ h1, h2, h3, .font-royal-title {
   animation: homeHeroFlowerFloatLeft 4.75s ease-in-out infinite;
 }
 
+/* Tasteful Imperial Cloud Floating Animations */
+@keyframes cloudFloatSlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(14px, -8px, 0);
+  }
+}
+
+@keyframes cloudFloatReverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-14px, 8px, 0);
+  }
+}
+
+.animate-cloud-float {
+  animation: cloudFloatSlow 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-cloud-reverse {
+  animation: cloudFloatReverse 14s ease-in-out infinite;
+  will-change: transform;
+}
+

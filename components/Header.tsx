@@ -53,33 +53,33 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`sticky top-0 z-40 bg-stone-900/95 backdrop-blur-md border-b border-amber-600/30 text-white shadow-lg transition-transform duration-300 ease-in-out will-change-transform ${
+      className={`sticky top-0 z-40 bg-[#312048]/95 backdrop-blur-md border-b border-[#F7C8D0]/20 text-[#FFF1D9] shadow-lg shadow-[#312048]/30 transition-transform duration-300 ease-in-out will-change-transform ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       {/* Top micro bar */}
-      <div className="bg-red-950/80 border-b border-amber-500/20 px-4 py-1.5 text-[11px] text-amber-200/90 hidden md:block">
+      <div className="bg-[#241738]/90 border-b border-[#F7C8D0]/15 px-4 py-1.5 text-[11px] text-[#F7C8D0]/90 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 font-medium">
-              <MapPin className="w-3.5 h-3.5 text-amber-400" />
+            <span className="flex items-center gap-1.5 font-medium text-[#FFF1D9]/90">
+              <MapPin className="w-3.5 h-3.5 text-[#F7C8D0]" />
               {COMPANY_INFO.address}
             </span>
-            <span className="opacity-40">|</span>
-            <span className="text-amber-300">
+            <span className="opacity-30">|</span>
+            <span className="text-[#FFF1D9]/80">
               Mở cửa: Mùa hè 06:30 - 17:30 | Mùa đông 07:00 - 17:00
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="font-semibold text-amber-300">
+            <span className="font-semibold text-[#FFF1D9]">
               Sự kiện đang diễn ra: "Khảm Sắc Cố Đô"
             </span>
-            <span className="opacity-40">|</span>
+            <span className="opacity-30">|</span>
             <a
               href={`tel:${COMPANY_INFO.hotline}`}
-              className="flex items-center gap-1 text-amber-300 hover:text-white font-bold transition-colors"
+              className="flex items-center gap-1 text-[#F7C8D0] hover:text-white font-bold transition-colors"
             >
-              <PhoneCall className="w-3 h-3 text-amber-400" />
+              <PhoneCall className="w-3 h-3 text-[#F7C8D0]" />
               <span>Hotline: {COMPANY_INFO.hotline}</span>
             </a>
           </div>
@@ -91,10 +91,10 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
           <Link href="/" className="flex flex-col justify-center group py-1">
-            <div className="font-serif font-black text-xl sm:text-2xl text-amber-200 tracking-wider uppercase leading-none group-hover:text-amber-100 transition-colors">
+            <div className="font-serif font-black text-xl sm:text-2xl text-[#FFF1D9] tracking-wider uppercase leading-none group-hover:text-amber-100 transition-colors">
               {COMPANY_INFO.brand}
             </div>
-            <div className="text-[10px] sm:text-[11px] text-amber-400/90 font-medium tracking-[0.2em] uppercase mt-1">
+            <div className="text-[10px] sm:text-[11px] text-[#F7C8D0]/90 font-medium tracking-[0.2em] uppercase mt-1">
               Quần thể Di tích Cố đô Huế
             </div>
           </Link>
@@ -109,8 +109,8 @@ export const Header: React.FC = () => {
                   href={item.href}
                   className={`px-3.5 py-2 rounded-xl text-sm font-medium transition-all ${
                     isActive
-                      ? "bg-amber-500/20 text-amber-300 font-bold border border-amber-500/40 shadow-sm"
-                      : "text-stone-300 hover:text-white hover:bg-white/5"
+                      ? "bg-white/15 text-[#FFF1D9] font-bold border border-[#F7C8D0]/30 shadow-sm"
+                      : "text-[#FFF1D9]/80 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {item.label}
@@ -123,9 +123,9 @@ export const Header: React.FC = () => {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               href="/dat-ve"
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 hover:from-red-800 hover:to-amber-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-900/30 border border-amber-400/40 active:scale-95 transition-all flex items-center gap-2"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#6A2B4A] via-[#54213B] to-[#3E162B] hover:from-[#7D3357] hover:to-[#4F233C] text-[#FFF1D9] font-bold text-xs uppercase tracking-wider shadow-lg shadow-[#312048]/40 border border-[#F7C8D0]/40 active:scale-95 transition-all flex items-center gap-2"
             >
-              <Ticket className="w-4 h-4 text-amber-300" />
+              <Ticket className="w-4 h-4 text-[#F7C8D0]" />
               <span>Đặt vé ngay</span>
             </Link>
           </div>
@@ -134,7 +134,7 @@ export const Header: React.FC = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-stone-300 hover:text-white border border-white/10 transition-colors"
+              className="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-[#FFF1D9] hover:text-white border border-[#F7C8D0]/20 transition-colors"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -144,7 +144,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Drawer (Only on tablets or fallback) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-stone-900/98 border-t border-white/10 px-4 py-4 space-y-2 animate-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-[#312048]/98 border-t border-[#F7C8D0]/20 px-4 py-4 space-y-2 animate-in slide-in-from-top-4 duration-200">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -154,8 +154,8 @@ export const Header: React.FC = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   isActive
-                    ? "bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30"
-                    : "text-stone-300 hover:bg-white/5 hover:text-white"
+                    ? "bg-white/15 text-[#FFF1D9] font-bold border border-[#F7C8D0]/30"
+                    : "text-[#FFF1D9]/80 hover:bg-white/10 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -166,9 +166,9 @@ export const Header: React.FC = () => {
             <Link
               href="/dat-ve"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 text-white font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-xl bg-gradient-to-r from-[#6A2B4A] via-[#54213B] to-[#3E162B] text-[#FFF1D9] font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg border border-[#F7C8D0]/40"
             >
-              <Ticket className="w-4 h-4 text-amber-300" />
+              <Ticket className="w-4 h-4 text-[#F7C8D0]" />
               <span>Đặt vé ngay</span>
             </Link>
           </div>
