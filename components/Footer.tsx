@@ -12,17 +12,12 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Col 1: Brand & Mission */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-red-800 flex items-center justify-center shadow-lg border border-amber-400/50">
-                <span className="font-serif font-black text-white text-2xl">H</span>
+            <div className="flex flex-col">
+              <div className="font-serif font-black text-xl text-amber-200 tracking-wider uppercase leading-tight">
+                {COMPANY_INFO.brand}
               </div>
-              <div>
-                <div className="font-serif font-bold text-lg text-amber-200 tracking-wide leading-tight">
-                  {COMPANY_INFO.brand}
-                </div>
-                <div className="text-[11px] text-amber-400/90 font-medium">
-                  {COMPANY_INFO.name}
-                </div>
+              <div className="text-[11px] text-amber-400/90 font-medium tracking-wider uppercase mt-0.5">
+                {COMPANY_INFO.name}
               </div>
             </div>
 

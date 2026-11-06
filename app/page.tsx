@@ -12,6 +12,7 @@ import {
 } from "@/data/heritageData";
 import { MonumentDetailModal } from "@/components/MonumentDetailModal";
 import { MistoryHeroBanner } from "@/components/MistoryHeroBanner";
+import SeasonalMonumentsSection from "@/components/SeasonalMonumentsSection";
 import {
   Compass,
   MapPin,
@@ -227,17 +228,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. DI TÍCH TIÊU BIỂU (14 DI TÍCH VỚI BỘ LỌC) */}
+      {/* 4. DI TÍCH TIÊU BIỂU THEO BỐN MÙA (CHUYỂN ĐỘNG SLIDER XUÂN - HẠ - THU - ĐÔNG) */}
+      <SeasonalMonumentsSection onSelectSite={(site) => setSelectedSite(site)} />
+
+      {/* 5. TOÀN BỘ 14 DI TÍCH VỚI BỘ LỌC CHI TIẾT */}
       <section id="di-tich" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-amber-800 bg-amber-100 px-3 py-1 rounded-full">
             Quần Thể Di Tích
           </span>
           <h2 className="font-serif font-black text-3xl sm:text-4xl text-stone-900">
-            Các Điểm Đến Di Tích Tiêu Biểu
+            Khám Phá Toàn Bộ 14 Điểm Đến Di Tích Cố Đô
           </h2>
           <p className="text-sm text-stone-600">
-            Khám phá 14 công trình lịch sử tráng lệ, từ Đại Nội uy nghiêm, hệ thống lăng tẩm hoàng gia đến các cung điện giao thoa văn hóa Đông – Tây.
+            Tìm hiểu chi tiết từng công trình lịch sử tráng lệ, từ Đại Nội uy nghiêm, hệ thống lăng tẩm hoàng gia đến các cung điện giao thoa văn hóa Đông – Tây.
           </p>
         </div>
 

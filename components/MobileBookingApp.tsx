@@ -162,17 +162,12 @@ export const MobileBookingApp: React.FC = () => {
       {/* Mobile App Header */}
       <header className="sticky top-0 z-30 bg-stone-900/95 backdrop-blur-md border-b border-amber-600/30 text-white px-4 py-3 shadow-md">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500 to-red-800 flex items-center justify-center shadow border border-amber-400/50">
-              <span className="font-serif font-black text-white text-base">H</span>
+          <div className="flex flex-col">
+            <div className="font-serif font-black text-base text-amber-200 tracking-wider uppercase leading-tight">
+              {COMPANY_INFO.brand}
             </div>
-            <div>
-              <div className="font-serif font-bold text-sm text-amber-200 tracking-wide leading-tight">
-                {COMPANY_INFO.brand}
-              </div>
-              <div className="text-[10px] text-amber-400/90 font-medium">
-                {COMPANY_INFO.mobileSlogan}
-              </div>
+            <div className="text-[9px] text-amber-400/90 font-medium tracking-wider uppercase">
+              {COMPANY_INFO.mobileSlogan}
             </div>
           </div>
 

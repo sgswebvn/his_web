@@ -90,17 +90,12 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 via-amber-600 to-red-800 flex items-center justify-center shadow-lg border border-amber-400/50 group-hover:scale-105 transition-transform">
-              <span className="font-serif font-black text-white text-2xl tracking-tighter">H</span>
+          <Link href="/" className="flex flex-col justify-center group py-1">
+            <div className="font-serif font-black text-xl sm:text-2xl text-amber-200 tracking-wider uppercase leading-none group-hover:text-amber-100 transition-colors">
+              {COMPANY_INFO.brand}
             </div>
-            <div>
-              <div className="font-serif font-black text-lg sm:text-xl text-amber-200 tracking-wide uppercase leading-tight group-hover:text-amber-100 transition-colors">
-                {COMPANY_INFO.brand}
-              </div>
-              <div className="text-[11px] text-amber-400/90 font-medium tracking-wider uppercase">
-                Quần thể Di tích Cố đô Huế
-              </div>
+            <div className="text-[10px] sm:text-[11px] text-amber-400/90 font-medium tracking-[0.2em] uppercase mt-1">
+              Quần thể Di tích Cố đô Huế
             </div>
           </Link>
 
