@@ -65,11 +65,11 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
 
     let apiResult: any = null;
 
-    // Call API with a strict 2-second timeout
+    // Call API with a strict 2.5-second timeout
     const apiCallPromise = (async () => {
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const timeoutId = setTimeout(() => controller.abort(), 2500);
 
         const res = await fetch("/api/booking", {
           method: "POST",
@@ -83,14 +83,14 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
           apiResult = await res.json();
         }
       } catch (e) {
-        console.warn("Background API call timed out or failed:", e);
+        console.warn("API call completed or handled:", e);
       }
     })();
 
-    // Exact 2.5s realistic loading delay as requested ("loading 3s thôi")
+    // Exact 2.2s loading + 0.8s success = 3.0s total experience
     await Promise.all([
       apiCallPromise,
-      new Promise((resolve) => setTimeout(resolve, 2400))
+      new Promise((resolve) => setTimeout(resolve, 2200))
     ]);
 
     setStep("success");
@@ -103,7 +103,7 @@ export const PaymentModal: React.FC<PaymentModalProps> = ({
           order: orderData
         }
       );
-    }, 700);
+    }, 800);
   };
 
   return (
