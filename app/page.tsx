@@ -49,8 +49,49 @@ export default function HomePage() {
       {/* 1. MISTORY ANIMATED HERO BANNER & INTRO CLOUDS */}
       <MistoryHeroBanner />
 
+      {/* 1.1 INTRO HERITAGE HIGHLIGHT (ĐƯA XUỐNG DƯỚI BANNER) */}
+      <section id="gioi-thieu" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 pt-4">
+        {/* UNESCO Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/90 border border-amber-300 text-amber-900 text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-sm">
+          <Sparkles className="w-4 h-4 text-amber-700" />
+          <span>Di Sản Văn Hóa Thế Giới UNESCO 1993</span>
+        </div>
+
+        {/* Title & Slogan */}
+        <div className="space-y-3">
+          <h1 className="font-serif font-black text-3xl sm:text-5xl lg:text-6xl tracking-tight text-stone-900">
+            Khám Phá Di Sản
+            <span className="block mt-2 font-serif text-2xl sm:text-4xl lg:text-5xl text-red-900">
+              Cố Đô Huế – Khảm Sắc Cố Đô
+            </span>
+          </h1>
+          <p className="max-w-3xl mx-auto text-sm sm:text-base text-stone-600 font-normal leading-relaxed">
+            Hành trình trở về kinh đô vương triều Nguyễn, nơi tinh hoa kiến trúc phong thủy đỉnh cao giao hòa cùng nghệ thuật khảm sành sứ độc bản ngàn năm.
+          </p>
+        </div>
+
+        {/* Action Navigation Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <a
+            href="#di-tich"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-red-950 via-amber-800 to-red-900 hover:from-red-900 hover:to-amber-700 text-white font-bold text-xs sm:text-sm tracking-wider uppercase shadow-lg border border-amber-400/40 transition-all active:scale-95 flex items-center justify-center gap-2 group"
+          >
+            <Compass className="w-4 h-4 text-amber-300 group-hover:rotate-45 transition-transform" />
+            <span>Khám phá 14 di tích</span>
+          </a>
+
+          <a
+            href="#gia-tri-van-hoa"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-white hover:bg-stone-50 border border-amber-300 text-amber-900 font-bold text-xs sm:text-sm tracking-wide shadow-sm transition-all flex items-center justify-center gap-2"
+          >
+            <Sparkles className="w-4 h-4 text-amber-700" />
+            <span>Khảm sắc cố đô</span>
+          </a>
+        </div>
+      </section>
+
       {/* Quick Stats Microbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
           <div className="bg-white/95 backdrop-blur-md border border-amber-300/80 rounded-2xl p-5 shadow-xl hover:shadow-2xl transition-all">
             <div className="text-2xl sm:text-3xl font-serif font-black text-red-900">1993</div>

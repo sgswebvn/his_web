@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { COMPANY_INFO } from "@/data/heritageData";
@@ -9,6 +9,39 @@ import { Ticket, PhoneCall, MapPin, Menu, X, Compass, CalendarCheck, ShieldCheck
 export const Header: React.FC = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // Always show when near the very top of the page
+          if (currentScrollY <= 80) {
+            setIsVisible(true);
+          } else if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 6) {
+            // Scrolling down -> hide navbar
+            setIsVisible(false);
+            setMobileMenuOpen(false);
+          } else if (currentScrollY < lastScrollY && lastScrollY - currentScrollY > 6) {
+            // Scrolling up -> show navbar
+            setIsVisible(true);
+          }
+
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   const navItems = [
     { label: "Trang chủ", href: "/" },
@@ -19,7 +52,11 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-stone-900/95 backdrop-blur-md border-b border-amber-600/30 text-white shadow-lg transition-all">
+    <header
+      className={`sticky top-0 z-40 bg-stone-900/95 backdrop-blur-md border-b border-amber-600/30 text-white shadow-lg transition-transform duration-300 ease-in-out will-change-transform ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       {/* Top micro bar */}
       <div className="bg-red-950/80 border-b border-amber-500/20 px-4 py-1.5 text-[11px] text-amber-200/90 hidden md:block">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
