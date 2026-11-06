@@ -1,0 +1,205 @@
+/* BeautiqueDisplay Font Family */
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-Light.otf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-LightItalic.otf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-Regular.otf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-Italic.otf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-Medium.otf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-MediumItalic.otf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-Bold.otf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-BoldItalic.otf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-Black.otf);
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeautiqueDisplay";
+    src: url(./BeautiqueDisplay-BlackItalic.otf);
+    font-weight: 900;
+    font-style: italic;
+}
+
+/* BeVietnamPro Font Family */
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Thin.ttf);
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-ThinItalic.ttf);
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-ExtraLight.ttf);
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-ExtraLightItalic.ttf);
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Light.ttf);
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-LightItalic.ttf);
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Medium.ttf);
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-MediumItalic.ttf);
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-SemiBold.ttf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-SemiBoldItalic.ttf);
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Bold.ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-BoldItalic.ttf);
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-ExtraBold.ttf);
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-ExtraBoldItalic.ttf);
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-Black.ttf);
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BeVietnamPro";
+    src: url(./BeVietnamPro-BlackItalic.ttf);
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Lavonia";
+    src: url(./DFVN-ED-Lavonia.otf) format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

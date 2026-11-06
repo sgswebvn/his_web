@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-royal: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-imperial-gold: #c29438;
+  --color-royal-maroon: #7f1d1d;
+  --color-heritage-bg: #fbf7ee;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fbf7ee;
+  color: #291a10;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-royal-title {
+  font-family: var(--font-serif);
+}
+
+.font-cinzel {
+  font-family: var(--font-royal);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1ebd8;
+}
+::-webkit-scrollbar-thumb {
+  background: #c29438;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #881337;
+}
+
+/* Royal Pattern Background */
+.bg-hue-pattern {
+  background-color: #fbf7ee;
+  background-image: radial-gradient(#d4b277 0.75px, transparent 0.75px), radial-gradient(#d4b277 0.75px, #fbf7ee 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af37 0%, #aa7c11 50%, #f9e076 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.royal-maroon-gradient {
+  background: linear-gradient(135deg, #7f1d1d 0%, #450a0a 100%);
+}
+
+.gold-border {
+  border-color: #c29438;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 148, 56, 0.2);
+}
+
+.glass-dark {
+  background: rgba(28, 25, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 148, 56, 0.3);
+}
+
+/* Animation utilities */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(194, 148, 56, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(194, 148, 56, 0.8);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Print Ticket Styles */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-ticket, #printable-ticket * {
+    visibility: visible;
+  }
+  #printable-ticket {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white !important;
+  }
+}
+

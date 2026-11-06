@@ -1,0 +1,276 @@
+/* Custom Interactive Styles for Mistory Clone */
+
+/* Cart and Checkout Utilities */
+.mistory-cart-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+}
+.mistory-cart-row {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(82, 47, 5, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mistory-cart-row:hover {
+    box-shadow: 0 6px 22px rgba(82, 47, 5, 0.1);
+}
+.mistory-cart-cell {
+    padding: 16px 20px;
+    vertical-align: middle;
+}
+.mistory-cart-cell:first-child {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+}
+.mistory-cart-cell:last-child {
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+/* Quantity Counter */
+.mistory-qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ECD4C2;
+    background: #FAF5F0;
+    border-radius: 9999px;
+    padding: 4px;
+}
+.mistory-qty-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #522F05;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.mistory-qty-btn:hover {
+    background: #522F05;
+    color: #FFFFFF;
+}
+.mistory-qty-input {
+    width: 44px;
+    text-align: center;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    color: #522F05;
+    font-size: 15px;
+    outline: none;
+}
+
+/* Card Container */
+.mistory-card {
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 6px 24px rgba(82, 47, 5, 0.08);
+    border: 1px solid rgba(235, 213, 193, 0.5);
+}
+
+/* Form Inputs */
+.mistory-input {
+    width: 100%;
+    padding: 13px 18px;
+    border-radius: 12px;
+    border: 1px solid #ECD4C2;
+    background: #FAF6F0;
+    color: #522F05;
+    font-family: 'BeVietnamPro', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    outline: none;
+}
+.mistory-input:focus {
+    border-color: #522F05;
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(82, 47, 5, 0.12);
+}
+
+/* Primary Button */
+.mistory-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 9999px;
+    background: #522F05;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+.mistory-btn-primary:hover {
+    background: #3c2203;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(82, 47, 5, 0.25);
+    color: #FFFFFF;
+}
+
+.mistory-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 26px;
+    border-radius: 9999px;
+    background: transparent;
+    color: #522F05;
+    border: 1.5px solid #522F05;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+.mistory-btn-secondary:hover {
+    background: #522F05;
+    color: #FFFFFF;
+}
+
+/* Payment Method Radio Cards */
+.mistory-payment-option {
+    border: 1.5px solid #ECD4C2;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    background: #FAF7F2;
+}
+.mistory-payment-option.active {
+    border-color: #522F05;
+    background: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(82, 47, 5, 0.08);
+}
+
+/* Live Search Dropdown */
+.mistory-search-results {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 420px;
+    max-width: 90vw;
+    background: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(82, 47, 5, 0.18);
+    border: 1px solid #EBD5C1;
+    overflow: hidden;
+    z-index: 100;
+}
+.mistory-search-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #F5ECDF;
+    transition: background 0.15s ease;
+    text-decoration: none;
+    color: #522F05;
+}
+.mistory-search-item:hover {
+    background: #FAF5EE;
+}
+.mistory-search-item:last-child {
+    border-bottom: none;
+}
+
+/* Toast Notification */
+.mistory-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99999;
+    background: #522F05;
+    color: #FFFFFF;
+    padding: 16px 24px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    animation: mistorySlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes mistorySlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Accordion helper */
+.content-block {
+    transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+.content-block:not(.show) {
+    display: none;
+}
+
+/* ============================================================
+   RESPONSIVE & MOBILE REFINEMENTS
+============================================================ */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .form-lien-he form {
+        width: 100% !important;
+    }
+}
+
+/* ============================================================
+   HEADER MENU & CHEVRON
+============================================================ */
+.main-menu > ul > li.menu-item-has-children > a {
+    padding-right: 1.25rem !important;
+}
+
+.header-bg.active .main-menu > ul > li.menu-item-has-children:after {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6' fill='none'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23522f05' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+}
+
+/* ============================================================
+   CART & CHECKOUT TABLE FIXES
+============================================================ */
+.cart-product-thumb {
+    width: 72px !important;
+    height: 72px !important;
+    min-width: 72px !important;
+    max-width: 72px !important;
+    object-fit: contain !important;
+}
+
+/* ============================================================
+   INTRO CLOUDS
+   Hide intro clouds completely so they never block the hero banner
+============================================================ */
+.home-hero-intro-clouds,
+.home-hero-intro-cloud {
+    display: none !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
