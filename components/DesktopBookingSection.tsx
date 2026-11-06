@@ -21,6 +21,7 @@ import {
   ShieldCheck,
   CheckCircle2,
   Download,
+  Loader2,
   AlertCircle,
   HelpCircle,
   Sparkles,
@@ -65,6 +66,42 @@ export const DesktopBookingSection: React.FC<DesktopBookingSectionProps> = ({
   // Payment modal & order completion
   const [isPaymentOpen, setIsPaymentOpen] = useState<boolean>(false);
   const [completedOrder, setCompletedOrder] = useState<any | null>(null);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
+
+  const handleDownloadTicket = async () => {
+    if (!completedOrder) return;
+    try {
+      setIsDownloading(true);
+      const element = document.getElementById("printable-ticket");
+      if (!element) return;
+
+      const html2canvas = (await import("html2canvas")).default;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#ffffff"
+      });
+
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = `ve-dien-tu-${completedOrder.ticketCode}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error("Lỗi khi tạo ảnh vé:", err);
+      if (completedOrder.qrDataUrl) {
+        const link = document.createElement("a");
+        link.href = completedOrder.qrDataUrl;
+        link.download = `ve-dien-tu-${completedOrder.ticketCode}.png`;
+        link.click();
+      }
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   useEffect(() => {
     if (initialSiteId) {
@@ -244,16 +281,20 @@ export const DesktopBookingSection: React.FC<DesktopBookingSectionProps> = ({
                 </span>
                 <div className="p-3 bg-white rounded-2xl shadow-lg border border-stone-200">
                   <img
-                    src={`https://api.qrserver.com/v1/create-qr-code/?size=240x240&color=7f1d1d&data=${encodeURIComponent(
-                      JSON.stringify({
-                        code: completedOrder.ticketCode,
-                        name: completedOrder.customerName,
-                        site: completedOrder.targetName,
-                        date: completedOrder.visitDate,
-                        total: completedOrder.totalAmount
-                      })
-                    )}`}
+                    src={
+                      completedOrder.qrDataUrl ||
+                      `https://api.qrserver.com/v1/create-qr-code/?size=240x240&color=7f1d1d&data=${encodeURIComponent(
+                        JSON.stringify({
+                          code: completedOrder.ticketCode,
+                          name: completedOrder.customerName,
+                          site: completedOrder.targetName,
+                          date: completedOrder.visitDate,
+                          total: completedOrder.totalAmount
+                        })
+                      )}`
+                    }
                     alt="Mã QR Soát Vé"
+                    crossOrigin="anonymous"
                     className="w-48 h-48 object-contain"
                   />
                 </div>
@@ -274,16 +315,26 @@ export const DesktopBookingSection: React.FC<DesktopBookingSectionProps> = ({
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <button
                   type="button"
-                  onClick={() => window.print()}
-                  className="flex-1 sm:flex-initial px-5 py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+                  onClick={handleDownloadTicket}
+                  disabled={isDownloading}
+                  className="flex-1 sm:flex-initial px-6 py-3 rounded-xl bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 hover:to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 disabled:opacity-60"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>In / Tải vé điện tử</span>
+                  {isDownloading ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-amber-300" />
+                      <span>Đang tạo ảnh vé PNG...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Download className="w-4 h-4 text-amber-300" />
+                      <span>Tải vé điện tử (Ảnh PNG)</span>
+                    </>
+                  )}
                 </button>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="flex-1 sm:flex-initial px-5 py-2.5 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xs transition-colors"
+                  className="flex-1 sm:flex-initial px-5 py-3 rounded-xl bg-stone-200 hover:bg-stone-300 text-stone-800 font-bold text-xs transition-colors"
                 >
                   Đặt thêm vé khác
                 </button>

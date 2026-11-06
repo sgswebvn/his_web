@@ -22,6 +22,7 @@ import {
   ShieldCheck,
   CheckCircle2,
   Download,
+  Loader2,
   Share2,
   AlertCircle,
   HelpCircle,
@@ -59,6 +60,42 @@ export const MobileBookingApp: React.FC = () => {
   const [isPaymentOpen, setIsPaymentOpen] = useState<boolean>(false);
   const [completedOrder, setCompletedOrder] = useState<any | null>(null);
   const [showRulesModal, setShowRulesModal] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
+
+  const handleDownloadTicket = async () => {
+    if (!completedOrder) return;
+    try {
+      setIsDownloading(true);
+      const element = document.getElementById("printable-ticket");
+      if (!element) return;
+
+      const html2canvas = (await import("html2canvas")).default;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: "#ffffff"
+      });
+
+      const image = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = image;
+      link.download = `ve-dien-tu-${completedOrder.ticketCode}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (err) {
+      console.error("Lỗi khi tải ảnh vé:", err);
+      if (completedOrder.qrDataUrl) {
+        const link = document.createElement("a");
+        link.href = completedOrder.qrDataUrl;
+        link.download = `ve-dien-tu-${completedOrder.ticketCode}.png`;
+        link.click();
+      }
+    } finally {
+      setIsDownloading(false);
+    }
+  };
 
   // Computed active target
   const currentSite: HeritageSite = useMemo(() => {
@@ -199,16 +236,20 @@ export const MobileBookingApp: React.FC = () => {
                 {/* QR Code View */}
                 <div className="p-3 bg-white rounded-xl shadow-md border border-stone-200">
                   <img
-                    src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=7f1d1d&data=${encodeURIComponent(
-                      JSON.stringify({
-                        code: completedOrder.ticketCode,
-                        name: completedOrder.customerName,
-                        site: completedOrder.targetName,
-                        date: completedOrder.visitDate,
-                        total: completedOrder.totalAmount
-                      })
-                    )}`}
+                    src={
+                      completedOrder.qrDataUrl ||
+                      `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=7f1d1d&data=${encodeURIComponent(
+                        JSON.stringify({
+                          code: completedOrder.ticketCode,
+                          name: completedOrder.customerName,
+                          site: completedOrder.targetName,
+                          date: completedOrder.visitDate,
+                          total: completedOrder.totalAmount
+                        })
+                      )}`
+                    }
                     alt="Mã QR Soát Vé"
+                    crossOrigin="anonymous"
                     className="w-44 h-44 object-contain"
                   />
                 </div>
@@ -279,11 +320,21 @@ export const MobileBookingApp: React.FC = () => {
           {/* Action buttons */}
           <div className="space-y-2 pt-2">
             <button
-              onClick={() => window.print()}
-              className="w-full py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+              onClick={handleDownloadTicket}
+              disabled={isDownloading}
+              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 hover:from-red-800 hover:to-amber-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-900/20 active:scale-[0.98] transition-all disabled:opacity-60"
             >
-              <Download className="w-4 h-4" />
-              <span>Tải về máy / In vé điện tử</span>
+              {isDownloading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin text-amber-300" />
+                  <span>Đang tải ảnh vé PNG vào máy...</span>
+                </>
+              ) : (
+                <>
+                  <Download className="w-4 h-4 text-amber-300" />
+                  <span>Tải vé điện tử về máy (Ảnh PNG)</span>
+                </>
+              )}
             </button>
             <button
               onClick={handleResetBooking}
