@@ -12,7 +12,6 @@ import {
 } from "@/data/heritageData";
 import { MonumentDetailModal } from "@/components/MonumentDetailModal";
 import {
-  Ticket,
   Compass,
   MapPin,
   Calendar,
@@ -81,20 +80,20 @@ export default function HomePage() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Link
-              href="/dat-ve"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 hover:from-red-800 hover:to-amber-600 text-white font-bold text-sm tracking-wider uppercase shadow-2xl shadow-amber-900/50 border border-amber-400/40 transition-all active:scale-95 flex items-center justify-center gap-2 group"
-            >
-              <Ticket className="w-5 h-5 text-amber-300 group-hover:rotate-12 transition-transform" />
-              <span>Đặt vé tham quan ngay</span>
-            </Link>
-
             <a
               href="#di-tich"
+              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-red-900 via-amber-700 to-red-950 hover:from-red-800 hover:to-amber-600 text-white font-bold text-sm tracking-wider uppercase shadow-2xl shadow-amber-900/50 border border-amber-400/40 transition-all active:scale-95 flex items-center justify-center gap-2 group"
+            >
+              <Compass className="w-5 h-5 text-amber-300 group-hover:rotate-45 transition-transform" />
+              <span>Khám phá 14 di tích</span>
+            </a>
+
+            <a
+              href="#gia-tri-van-hoa"
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold text-sm tracking-wide border border-white/20 transition-all flex items-center justify-center gap-2"
             >
-              <Compass className="w-4 h-4 text-amber-400" />
-              <span>Khám phá 14 di tích</span>
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>Khảm sắc cố đô</span>
             </a>
           </div>
 
@@ -319,21 +318,14 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-stone-100 flex items-center justify-between gap-2">
+                <div className="pt-3 border-t border-stone-100">
                   <button
                     type="button"
                     onClick={() => setSelectedSite(site)}
-                    className="flex-1 py-2.5 px-3 rounded-xl border border-stone-300 hover:bg-stone-100 text-stone-700 font-bold text-xs transition-colors text-center"
+                    className="w-full py-2.5 px-4 rounded-xl border border-amber-300/80 bg-amber-50/70 hover:bg-amber-100/90 text-amber-950 font-bold text-xs transition-colors flex items-center justify-center gap-1.5 group"
                   >
-                    Xem chi tiết
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleBookNow(site)}
-                    className="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-red-900 to-amber-700 hover:from-red-800 hover:to-amber-600 text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <Ticket className="w-3.5 h-3.5 text-amber-300" />
-                    <span>Đặt vé ngay</span>
+                    <span>Xem chi tiết di tích</span>
+                    <ChevronRight className="w-3.5 h-3.5 text-amber-800 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
               </div>
@@ -493,28 +485,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 7. QUICK BOOKING BANNER CTA */}
+      {/* 7. HERITAGE EXPLORATION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-red-950 via-stone-900 to-amber-950 text-white p-8 sm:p-12 shadow-2xl border border-amber-400/40 flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-center lg:text-left">
             <span className="text-xs font-bold text-amber-400 uppercase tracking-widest">
-              Trải Nghiệm Tiện Lợi & Nhanh Chóng
+              Hành Trình Di Sản Cố Đô
             </span>
             <h2 className="font-serif font-black text-3xl sm:text-4xl text-amber-100">
-              Sẵn Sàng Cho Chuyến Du Khảo Cố Đô?
+              Khám Phá Toàn Diện 14 Di Tích Tiêu Biểu
             </h2>
             <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
-              Đặt vé trực tuyến chỉ trong vài phút, tự động nhận vé điện tử kèm mã QR soát vé qua cổng, bảo đảm giá vé chính thức và dịch vụ chu đáo nhất.
+              Tìm hiểu sâu sắc về lịch sử, kiến trúc phong thủy và tinh hoa nghệ thuật khảm sành sứ độc bản của Quần thể Di tích Cố đô Huế.
             </p>
           </div>
 
           <div className="flex-shrink-0">
             <Link
-              href="/dat-ve"
+              href="/kham-pha"
               className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-black text-sm uppercase tracking-wider shadow-2xl transition-all active:scale-95 flex items-center gap-2"
             >
-              <Ticket className="w-5 h-5 text-stone-950" />
-              <span>Đặt vé tham quan ngay</span>
+              <Compass className="w-5 h-5 text-stone-950" />
+              <span>Xem chi tiết khám phá</span>
             </Link>
           </div>
         </div>
